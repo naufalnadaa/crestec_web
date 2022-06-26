@@ -1,15 +1,19 @@
 import { useRouter } from 'next/router';
+import { NextResponse } from 'next/server';
 import React from 'react';
 import { useEffect, useState } from 'react';
 
 const Dashboard = () => {
     const [username, setUsername] = useState('')
+    const [loader, setLoader] = useState(false)
     const router = useRouter()
 
-    const checkPage = async() => {
+    const checkPage = async () => {
         const data = await localStorage.getItem('username')
-        if(data == null){
-            router.push("/login")
+        if (data == null) {
+            router.push('/login')
+        } else {
+            setLoader(true)
         }
     }
 
@@ -23,10 +27,18 @@ const Dashboard = () => {
         router.push('/login')
     }
 
-    useEffect(()=>{
+    useEffect(() => {
         getData()
         checkPage()
-    },[])
+    }, [])
+
+    if (!loader) {
+        return (
+            <div className="spinner-border centering" role="status">
+                <span className="visually-hidden">Loading...</span>
+            </div>
+        )
+    }
     return (
         <>
             <h2>Ini Dashboard, Usernameku : {username}</h2>
