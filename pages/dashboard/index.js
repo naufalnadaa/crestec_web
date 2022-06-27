@@ -1,17 +1,21 @@
 import { useRouter } from 'next/router';
+import { NextResponse } from 'next/server';
 import React from 'react';
 import { useEffect, useState } from 'react';
 import { Layout } from '../../components/Layout';
 
 const Dashboard = () => {
     const [username, setUsername] = useState('')
+    const [loader, setLoader] = useState(false)
     const router = useRouter()
 
-    const checkPage = async() => {
-        // const data = await localStorage.getItem('username')
-        // if(data == null){
-        //     router.push("/login")
-        // }
+    const checkPage = async () => {
+        const data = await localStorage.getItem('username')
+        if (data == null) {
+            router.push('/login')
+        } else {
+            setLoader(true)
+        }
     }
 
     const getData = () => {
@@ -24,10 +28,18 @@ const Dashboard = () => {
         router.push('/login')
     }
 
-    useEffect(()=>{
+    useEffect(() => {
         getData()
         checkPage()
-    },[])
+    }, [])
+
+    if (!loader) {
+        return (
+            <div className="spinner-border centering" role="status">
+                <span className="visually-hidden">Loading...</span>
+            </div>
+        )
+    }
     return (
         <>
             <Layout>
