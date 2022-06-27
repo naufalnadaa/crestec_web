@@ -42,7 +42,7 @@ const Login = (props) => {
                 username: username,
                 password: password
             }
-            axios.post(`http://localhost:8080/user/login`, data).then(
+            axios.post(`http://localhost:6001/user/login`, data).then(
                 res => {
                     Swal.fire({
                         icon: "success",

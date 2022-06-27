@@ -1,16 +1,17 @@
 import { useRouter } from 'next/router';
 import React from 'react';
 import { useEffect, useState } from 'react';
+import { Layout } from '../../components/Layout';
 
 const Dashboard = () => {
     const [username, setUsername] = useState('')
     const router = useRouter()
 
     const checkPage = async() => {
-        const data = await localStorage.getItem('username')
-        if(data == null){
-            router.push("/login")
-        }
+        // const data = await localStorage.getItem('username')
+        // if(data == null){
+        //     router.push("/login")
+        // }
     }
 
     const getData = () => {
@@ -29,10 +30,9 @@ const Dashboard = () => {
     },[])
     return (
         <>
-            <h2>Ini Dashboard, Usernameku : {username}</h2>
-            <div>
-                <button onClick={removeData} className='btn btn-danger'>Logout</button>
-            </div>
+            <Layout>
+                <p style={{fontSize:36}}>hi</p>
+            </Layout>
         </>
     );
 }

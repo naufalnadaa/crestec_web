@@ -20,7 +20,7 @@ const ForgetPass = () => {
             const data = {
                 email: email
             }
-            await axios.post(`http://localhost:8080/user/reset-password`, data).then(
+            await axios.post(`http://localhost:6001/user/reset-password`, data).then(
                 res => {
                     Swal.fire("Kami telah mengirimkan tautan ke emailmu")
                     setEmail("")

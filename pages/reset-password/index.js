@@ -40,7 +40,7 @@ const ResetPass = () => {
             const dataUpdate = {
                 password: password
             }
-            axios.put(`http://localhost:8080/user/update-password?email=${email}`, dataUpdate).then(
+            axios.put(`http://localhost:6001/user/update-password?email=${email}`, dataUpdate).then(
                 res => {
                     Swal.fire({
                         text: "Berhasil ubah kata sandi",
