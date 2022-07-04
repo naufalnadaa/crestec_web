@@ -56,7 +56,7 @@ a {
   height: 50px;
   background-color: rgb(92, 91, 91);
   padding: 10px;
-  margin-left: 33px;
+  margin-left: 18px;
 }
 
 .ml-2{
@@ -67,4 +67,10 @@ a {
 }
 .ml-4{
   margin-left: 40px;
+}
+
+.form-register{
+  padding-left: 400px;
+  padding-right: 400px;
+  padding-top: 100px;
 }

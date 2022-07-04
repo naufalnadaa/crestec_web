@@ -5,6 +5,7 @@ import Swal from 'sweetalert2'
 import { useRouter } from 'next/router';
 import axios from 'axios';
 import Link from 'next/link'
+import { URL } from '../../src/config/url';
 
 const Login = (props) => {
     const [username, setusername] = useState('')
@@ -42,7 +43,7 @@ const Login = (props) => {
                 username: username,
                 password: password
             }
-            axios.post(`http://localhost:6001/user/login`, data).then(
+            axios.post(`${URL.development}/user/login`, data).then(
                 res => {
                     Swal.fire({
                         icon: "success",

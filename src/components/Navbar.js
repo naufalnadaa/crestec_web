@@ -25,7 +25,7 @@ const Navbar = () => {
                         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                             <li class="nav-item">
                                 <Link href={'/'}>
-                                <a class="nav-link active" aria-current="page">Home</a>
+                                    <a class="nav-link active" aria-current="page">Home</a>
                                 </Link>
                             </li>
                             <li class="nav-item">
@@ -40,7 +40,9 @@ const Navbar = () => {
                             <Link href={"/login"}>
                                 <button style={{ marginRight: 20 }} class="btn btn-outline-primary" type="submit"><i className="bi bi-box-arrow-in-right"></i>Login</button>
                             </Link>
-                            <button class="btn btn-outline-success" type="submit">Register</button>
+                            <Link href={"/register"}>
+                                <button class="btn btn-outline-success" type="submit">Register</button>
+                            </Link>
                         </form>
                     </div>
                 </div>
